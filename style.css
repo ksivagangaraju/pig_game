@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 400;
+  min-height: 100vh;
+  color: #333;
+  background-image: linear-gradient(to top left, #753682 0%, #bf2e34 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  position: relative;
+  width: 100rem;
+  height: 60rem;
+  background-color: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(200px);
+  filter: blur();
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
+  border-radius: 9px;
+  margin: 3.2rem;
+  overflow: hidden;
+  display: flex;
+}
+
+.player {
+  flex: 50%;
+  padding: 9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.75s;
+}
+
+.player-score {
+  margin-bottom: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.name {
+  font-size: 4rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.score {
+  font-size: 8rem;
+  font-weight: 300;
+  color: #c7365f;
+}
+
+.player--active {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.player--active .name {
+  font-weight: 700;
+}
+
+.player--active .score {
+  font-weight: 400;
+}
+
+.current {
+  background-color: #c7365f;
+  opacity: 0.8;
+  border-radius: 9px;
+  color: #fff;
+  width: 65%;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.75s;
+}
+
+.player--active .current {
+  opacity: 1;
+}
+
+.current-label {
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  font-size: 1.7rem;
+  color: #ddd;
+}
+
+.current-score {
+  font-size: 3.5rem;
+}
+
+.btn {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
+  color: #444;
+  border: none;
+  font-family: inherit;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+
+  padding: 0.7rem 2.5rem;
+  border-radius: 50rem;
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  align-items: center;
+}
+
+.btn::first-letter {
+  font-size: 2.4rem;
+  display: inline-block;
+  margin-right: 0.7rem;
+}
+
+.btn--new {
+  top: 5%;
+}
+.btn--roll {
+  top: 65%;
+}
+.btn--hold {
+  top: 77%;
+}
+
+.btn:active {
+  transform: translate(-50%, 3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.dice {
+  position: absolute;
+  left: 50%;
+  top: 31%;
+  transform: translateX(-50%);
+  height: 10rem;
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
+}
+
+.player--winner {
+  background-color: #2f2f2f;
+}
+
+.player--winner .name {
+  font-weight: 700;
+  color: #c7365f;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 65em) {
+  main {
+    height: 50rem;
+  }
+
+  .player {
+    padding: 8rem;
+  }
+
+  .name {
+    font-size: 2.4rem;
+  }
+
+  .score {
+    font-size: 5rem;
+  }
+
+  .current-label {
+    font-size: 1.6rem;
+  }
+
+  .current-score {
+    font-size: 2.4rem;
+  }
+
+  .btn {
+    font-size: 1.4rem;
+  }
+
+  .btn::first-letter {
+    font-size: 1.8rem;
+    margin-right: 0.5rem;
+  }
+
+  .btn--new {
+    top: 6%;
+  }
+
+  .btn--roll {
+    top: 63%;
+  }
+
+  .btn--hold {
+    top: 76%;
+  }
+}
+
+@media (max-width: 50em) {
+  main {
+    flex-direction: column;
+  }
+
+  .player {
+    flex-direction: row;
+    padding: 4rem;
+  }
+
+  .player-score {
+    margin: 0;
+    margin-right: auto;
+  }
+
+  .current {
+    width: 30%;
+  }
+
+  .dice {
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .btn--roll {
+    top: 65%;
+  }
+  .btn--hold {
+    top: 78%;
+  }
+}
+
+@media (max-width: 32em) {
+  main {
+    min-height: calc(100vh - 6.4rem);
+  }
+
+  .player {
+    flex: auto;
+    height: 50%;
+    flex-direction: column;
+  }
+
+  .player-score {
+    width: 100%;
+    margin: 0;
+    margin-bottom: auto;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 2rem;
+  }
+
+  .current {
+    width: 80%;
+  }
+
+  .btn {
+    width: 16rem;
+    justify-content: center;
+  }
+
+  .btn--new {
+    top: 48%;
+    left: -5rem;
+    transform: rotate(270deg);
+  }
+
+  .btn--roll {
+    top: 48%;
+    left: -5rem;
+    transform: rotate(270deg);
+    margin-top: -18rem;
+  }
+
+  .btn--hold {
+    top: 48%;
+    left: -5rem;
+    transform: rotate(270deg);
+    margin-top: 18rem;
+  }
+
+  .dice {
+    height: 6rem;
+  }
+}
