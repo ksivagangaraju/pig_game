@@ -17,7 +17,7 @@ const totalScore1 = document.getElementById('score--1');
 const currentScore0 = document.getElementById('current--0');
 const currentScore1 = document.getElementById('current--1');
 
-const targetScore = 20;
+const targetScore = 100;
 let score = [0, 0];
 let totalScore = [0, 0];
 let player = 0;
